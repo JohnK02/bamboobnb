@@ -10,14 +10,14 @@ class Users:
         return self.__dict__ == other.__dict__
 
     def __repr__(self):
-        return f"User({self.id}, {self.username}, {self.email})"
+        return f"User({self.id}, {self.username}, {self.password}, {self.email})"
     
     def is_valid(self):
         if self.username == None or self.username == "":
             return False
-        if self.email == None or self.email == "":
-            return False
         if self.password == None or self.password == "":
+            return False
+        if self.email == None or self.email == "":
             return False
         return True
 
@@ -25,10 +25,10 @@ class Users:
         errors = []
         if self.username == None or self.username == "":
             errors.append("Username can't be blank")
-        if self.email == None or self.email == "":
-            errors.append("Email can't be blank")
         if self.password == None or self.password == "":
             errors.append("Password can't be blank")
+        if self.email == None or self.email == "":
+            errors.append("Email can't be blank")
         if len(errors) == 0:
             return None
         else:
