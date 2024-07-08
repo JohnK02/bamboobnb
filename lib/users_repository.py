@@ -1,0 +1,36 @@
+from lib.users import Users
+
+class UsersRepository:
+
+    def __init__(self, connection):
+        self._connection = connection
+
+    # Retrieve all books
+    def all(self):
+        rows = self._connection.execute('SELECT * from users')
+        users = []
+        for row in rows:
+            item = Users(row["id"], row["username"],row["password"], row["email"])
+            users.append(item)
+        return users
+
+    # Find a single book by its id
+    def find(self, id):
+        rows = self._connection.execute(
+            'SELECT * from books WHERE id = %s', [id])
+        row = rows[0]
+        return Users(row["id"], row["username"],row["password"], row["email"])
+
+    # Create a new book
+    def create(self, user):
+        rows = self._connection.execute('INSERT INTO books (username, password, email) VALUES (%s, %s) RETURNING id', [
+                                    user.username, user.password, user.email])
+        row = rows[0]
+        user.id = row["id"]
+        return user
+
+    # Delete a book by its id
+    def delete(self, id):
+        self._connection.execute(
+            'DELETE FROM books WHERE id = %s', [id])
+        return None
