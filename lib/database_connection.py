@@ -10,8 +10,8 @@ from psycopg.rows import dict_row
 # That's why we have provided it!
 class DatabaseConnection:
     # VVV CHANGE BOTH OF THESE VVV
-    DEV_DATABASE_NAME = "users"
-    TEST_DATABASE_NAME = "users_test"
+    DEV_DATABASE_NAME = "bamboo_bnb_directory"
+    TEST_DATABASE_NAME = "bamboo_bnb_directory_test"
 
     def __init__(self, test_mode=False):
         self.test_mode = test_mode
