@@ -61,32 +61,8 @@ def post_spaces():
     # return redirect(url_for('get_home')) 
 
 
-
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
 # if started in test mode.
 if __name__ == '__main__':
     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
-
-
-
-# @app.route('/albums')
-# def get_album():
-#     connection = get_flask_database_connection(app)
-#     repository = AlbumRepository(connection)
-#     return "\n".join(
-#         f"{album}" for album in repository.all()
-#     )
-
-# def has_invalid_album_parameters(form):
-#     return 'title' not in form or \
-#     'release_year' not in form \
-#     or 'artist_id' not in form 
-
-
-# # These lines start the server if you run this file directly
-# # They also start the server configured to use the test database
-# # if started in test mode.
-# if __name__ == '__main__':
-#     app.run(debug=True, port=int(os.environ.get('PORT', 5000)))
-
