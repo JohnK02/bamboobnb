@@ -14,7 +14,7 @@ CREATE TABLE spaces (
     maximum_capacity int,
     number_of_bedrooms int,
     number_of_bathrooms int,
-    price_per_night numeric,
+    price_per_night numeric(9,2),
     user_id int,
     constraint fk_user foreign key(user_id) references users(id)
 );
