@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BambooBnB</title>
+    </head>
+    <body>
+        <h1>Spaces</h1>
+        <hr>
+        {% for space in spaces %}
+            <article>
+                <h2>
+                    <a href="/spaces/{{space.id}}">{{space.name}}</a>
+                </h2>
+                <hr>
+            </article>
+        {% endfor %}
+    </body>
+</html>
