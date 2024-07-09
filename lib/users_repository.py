@@ -17,13 +17,13 @@ class UsersRepository:
     # Find a single book by its id
     def find(self, id):
         rows = self._connection.execute(
-            'SELECT * from books WHERE id = %s', [id])
+            'SELECT * from users WHERE id = %s', [id])
         row = rows[0]
         return Users(row["id"], row["username"],row["password"], row["email"])
 
     # Create a new book
     def create(self, user):
-        rows = self._connection.execute('INSERT INTO books (username, password, email) VALUES (%s, %s) RETURNING id', [
+        rows = self._connection.execute('INSERT INTO users (username, password, email) VALUES (%s, %s, %s) RETURNING id', [
                                     user.username, user.password, user.email])
         row = rows[0]
         user.id = row["id"]
@@ -32,5 +32,5 @@ class UsersRepository:
     # Delete a book by its id
     def delete(self, id):
         self._connection.execute(
-            'DELETE FROM books WHERE id = %s', [id])
+            'DELETE FROM users WHERE id = %s', [id])
         return None
