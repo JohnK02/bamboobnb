@@ -5,7 +5,7 @@ class UsersRepository:
     def __init__(self, connection):
         self._connection = connection
 
-    # Retrieve all books
+    # Retrieve all users
     def all(self):
         rows = self._connection.execute('SELECT * from users')
         users = []
@@ -14,23 +14,23 @@ class UsersRepository:
             users.append(item)
         return users
 
-    # Find a single book by its id
+    # Find a single user by its id
     def find(self, id):
         rows = self._connection.execute(
-            'SELECT * from books WHERE id = %s', [id])
+            'SELECT * from users WHERE id = %s', [id])
         row = rows[0]
         return Users(row["id"], row["username"],row["password"], row["email"])
 
-    # Create a new book
+    # Create a new users
     def create(self, user):
-        rows = self._connection.execute('INSERT INTO books (username, password, email) VALUES (%s, %s) RETURNING id', [
+        rows = self._connection.execute('INSERT INTO users (username, password, email) VALUES (%s, %s, %s) RETURNING id', [
                                     user.username, user.password, user.email])
         row = rows[0]
         user.id = row["id"]
         return user
 
-    # Delete a book by its id
+    # Delete a users by its id
     def delete(self, id):
         self._connection.execute(
-            'DELETE FROM books WHERE id = %s', [id])
+            'DELETE FROM users WHERE id = %s', [id])
         return None
