@@ -57,4 +57,3 @@ class SpaceRepository:
         
     def delete(self, id):
         self._connection.execute("DELETE FROM spaces WHERE id = %s", [id])
-        return 
