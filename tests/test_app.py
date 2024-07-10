@@ -2,7 +2,7 @@ from playwright.sync_api import Page, expect
 from lib.spaces_repository import SpaceRepository
 from lib.database_connection import get_flask_database_connection
 from lib.users_repository import UsersRepository
-from lib.users import Users
+from lib.user import User
 from lib.space import Space
 
 # Tests for your routes go here

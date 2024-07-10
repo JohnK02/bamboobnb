@@ -1,4 +1,4 @@
-from lib.users import Users
+from lib.user import User
 
 class UsersRepository:
 
@@ -10,7 +10,7 @@ class UsersRepository:
         rows = self._connection.execute('SELECT * from users')
         users = []
         for row in rows:
-            item = Users(row["id"], row["username"],row["password"], row["email"])
+            item = User(row["id"], row["username"],row["password"], row["email"])
             users.append(item)
         return users
 
@@ -19,7 +19,7 @@ class UsersRepository:
         rows = self._connection.execute(
             'SELECT * from users WHERE id = %s', [id])
         row = rows[0]
-        return Users(row["id"], row["username"],row["password"], row["email"])
+        return User(row["id"], row["username"],row["password"], row["email"])
 
     # Create a new users
     def create(self, user):

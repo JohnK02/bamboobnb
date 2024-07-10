@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, render_template, url_for, redirect
 from lib.database_connection import get_flask_database_connection
-from lib.users import Users
+from lib.user import User
 from lib.users_repository import UsersRepository
 from lib.spaces_repository import SpaceRepository
 from lib.space import Space
@@ -26,7 +26,7 @@ def post_users():
     connection = get_flask_database_connection(app)
     repository = UsersRepository(connection)
 
-    users = Users(
+    users = User(
         None,
         request.form['username'],
         request.form['password'],
