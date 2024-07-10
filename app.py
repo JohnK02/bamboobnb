@@ -11,13 +11,17 @@ app = Flask(__name__)
 
 # == Your Routes Here ==
 
-# GET /index
-# Returns the homepage
-# Try it:
-#   ; open http://localhost:5001/index
 @app.route('/', methods=['GET'])
 def get_home():
     return render_template('home.html')
+
+@app.route('/registration', methods = ['POST'])
+def post_register():
+    return render_template('users/registration.html')
+
+@app.route('/login', methods = ['GET'])
+def get_login():
+    return render_template('login.html')
 
 @app.route('/users', methods=['POST'])
 def post_users():
@@ -33,22 +37,17 @@ def post_users():
         request.form['email'],
         )
     repository.create(users)
-    return '', 200
-    # return render_template('home.html')
+    # return '', 200
+    return render_template('users/registration.html')
 
 def has_invalid_users_parameters(form):
     return 'username' not in form or \
     'password' not in form \
     or 'email' not in form 
 
-@app.route('/registration', methods = ['GET'])
-def get_register():
-    return render_template('registration.html')
-
-
 @app.route('/spaces', methods=['GET'])
 def get_spaces():
-    return render_template('show.html')
+    return render_template('create_space.html')
 
 @app.route('/spaces', methods=['POST'])
 def post_spaces():
@@ -66,9 +65,9 @@ def post_spaces():
         request.form['price_per_night'],
         request.form['user_id'],
         ))
-    return "\n".join(
-        f"{space}" for space in repository.all())
-    # return redirect(url_for('get_home')) 
+    # return "\n".join(
+    #     f"{space}" for space in repository.all())
+    return render_template('spaces/create_space.html')
 
 @app.route('/spaces', methods=['DELETE'])
 def delete_spaces():
