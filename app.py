@@ -15,13 +15,13 @@ app = Flask(__name__)
 def get_home():
     return render_template('home.html')
 
-@app.route('/registration', methods = ['POST'])
+@app.route('/registration', methods = ['GET'])
 def post_register():
     return render_template('users/registration.html')
 
 @app.route('/login', methods = ['GET'])
 def get_login():
-    return render_template('login.html')
+    return render_template('users/login.html')
 
 @app.route('/users', methods=['POST'])
 def post_users():
@@ -37,8 +37,8 @@ def post_users():
         request.form['email'],
         )
     repository.create(users)
-    # return '', 200
-    return render_template('users/registration.html')
+    return '', 200
+
 
 def has_invalid_users_parameters(form):
     return 'username' not in form or \
@@ -47,7 +47,7 @@ def has_invalid_users_parameters(form):
 
 @app.route('/spaces', methods=['GET'])
 def get_spaces():
-    return render_template('create_space.html')
+    return render_template('spaces/create_space.html')
 
 @app.route('/spaces', methods=['POST'])
 def post_spaces():
@@ -67,7 +67,7 @@ def post_spaces():
         ))
     # return "\n".join(
     #     f"{space}" for space in repository.all())
-    return render_template('spaces/create_space.html')
+    return '', 200
 
 @app.route('/spaces', methods=['DELETE'])
 def delete_spaces():

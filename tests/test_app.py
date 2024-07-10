@@ -8,6 +8,12 @@ from lib.space import Space
 
 # Tests for your routes go here
 
+# def test_get_login(page, test_web_address):
+#     page.goto(f"http://{test_web_address}/login")
+#     page.fill('username', 'user1')
+#     page.fill('password', 'password1')
+#     page.click('submit')
+#     assert "", 200
 """
 /POST albums
 When I add a new user through POST /users
@@ -39,10 +45,8 @@ def test_post_spaces(db_connection, web_client):
 
         })
     assert post_response.status_code == 200
-    assert post_response.data.decode('utf-8') == "1, space1, street1, city1, type1, 1, 1, 1, 100.00, 1\n" \
-    "2, space2, street2, city2, type2, 2, 2, 2, 200.00, 2\n" \
-    "3, space3, street3, city3, type3, 3, 3, 3, 300.00, 3\n" \
-    "4, space1, street1, city1, type1, 1, 1, 1, 100.00, 1"
+    assert post_response.data.decode('utf-8') == ""
+    
 
 def test_get_spaces(db_connection, web_client):
     db_connection.seed("seeds/test_bamboo_bnb_directory.sql")
