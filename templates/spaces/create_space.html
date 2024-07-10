@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create a Space</h1>
+    <form action="/spaces" method="post">
+        <p>
+            <label for="name">Space Name</label>
+            <input type="text" name="name" id="name">
+        </p>
+        <p>
+            <label for="street">Street</label>
+            <input type="text" name="street" id="street">
+        </p>
+        <p>
+            <label for="city">City</label>
+            <input type="text" name="city" id="city">
+        </p>
+        <p>
+            <label for="property_type">Property Type</label>
+            <input type="text" name="property_type" id="property_type">
+        </p>
+        <p>
+            <label for="maximum_capacity">Maximum Capacity</label>
+            <input type="number" name="maximum_capacity" id="maximum_capacity" min="1">
+        </p>
+        <p>
+            <label for="number_of_bedrooms">Number of Bedrooms</label>
+            <input type="number" name="number_of_bedrooms" id="number_of_bedrooms" min="1">
+        </p>
+        <p>
+            <label for="number_of_bathrooms">Number of Bathrooms</label>
+            <input type="number" name="number_of_bathrooms" id="number_of_bathrooms">
+        </p>
+        <p>
+            <label for="price_per_night">Price per Night (e.g. 100.00)</label>
+            <input type="number" name="price_per_night" id="price_per_night">
+        </p>
+        <p>
+            <label for="user_id">User ID</label>
+            <input type="number" name="user_id" id="user_id" min="1">
+        </p>
+    </form>
+    
+</body>
+</html>
