@@ -41,9 +41,9 @@ def has_invalid_users_parameters(form):
     'password' not in form \
     or 'email' not in form 
 
-@app.route('/register', methods = ['GET'])
+@app.route('/registration', methods = ['GET'])
 def get_register():
-    return render_template('register.html')
+    return render_template('registration.html')
 
 
 @app.route('/spaces', methods=['GET'])
@@ -74,18 +74,7 @@ def post_spaces():
 def delete_spaces():
     connection = get_flask_database_connection(app)
     repository = SpaceRepository(connection)
-    repository.delete(Space(
-        None,
-        request.form['name'],
-        request.form['street'],
-        request.form['city'],
-        request.form['property_type'],
-        request.form['maximum_capacity'],
-        request.form['number_of_bedrooms'],
-        request.form['number_of_bathrooms'],
-        request.form['price_per_night'],
-        request.form['user_id'],
-        ))
+    repository.delete(request.form['id'])
     return "\n".join(
         f"{space}" for space in repository.all())
 
