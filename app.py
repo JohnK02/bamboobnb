@@ -34,11 +34,21 @@ def post_users():
         )
     repository.create(users)
     return '', 200
+    # return render_template('home.html')
 
 def has_invalid_users_parameters(form):
     return 'username' not in form or \
     'password' not in form \
     or 'email' not in form 
+
+@app.route('/register', methods = ['GET'])
+def get_register():
+    return render_template('register.html')
+
+
+@app.route('/spaces', methods=['GET'])
+def get_spaces():
+    return render_template('show.html')
 
 @app.route('/spaces', methods=['POST'])
 def post_spaces():
@@ -60,6 +70,24 @@ def post_spaces():
         f"{space}" for space in repository.all())
     # return redirect(url_for('get_home')) 
 
+@app.route('/spaces', methods=['DELETE'])
+def delete_spaces():
+    connection = get_flask_database_connection(app)
+    repository = SpaceRepository(connection)
+    repository.delete(Space(
+        None,
+        request.form['name'],
+        request.form['street'],
+        request.form['city'],
+        request.form['property_type'],
+        request.form['maximum_capacity'],
+        request.form['number_of_bedrooms'],
+        request.form['number_of_bathrooms'],
+        request.form['price_per_night'],
+        request.form['user_id'],
+        ))
+    return "\n".join(
+        f"{space}" for space in repository.all())
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
