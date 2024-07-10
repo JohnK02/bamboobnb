@@ -1,3 +1,4 @@
+from flask import app
 from playwright.sync_api import Page, expect
 from lib.spaces_repository import SpaceRepository
 from lib.database_connection import get_flask_database_connection
@@ -42,3 +43,24 @@ def test_post_spaces(db_connection, web_client):
     "2, space2, street2, city2, type2, 2, 2, 2, 200.00, 2\n" \
     "3, space3, street3, city3, type3, 3, 3, 3, 300.00, 3\n" \
     "4, space1, street1, city1, type1, 1, 1, 1, 100.00, 1"
+
+def test_get_spaces(db_connection, web_client):
+    db_connection.seed("seeds/test_bamboo_bnb_directory.sql")
+    repository = SpaceRepository(db_connection)
+    assert repository.all() == [
+        Space(1, 'space1', 'street1', 'city1', 'type1', 1, 1, 1, 100.00, 1),
+        Space(2, 'space2', 'street2', 'city2', 'type2', 2, 2, 2, 200.00, 2),
+        Space(3, 'space3', 'street3', 'city3', 'type3', 3, 3, 3, 300.00, 3),
+    ]
+
+def test_delete_spaces(db_connection, web_client):
+    db_connection.seed("seeds/test_bamboo_bnb_directory.sql")
+    delete_response = web_client.delete('/spaces', data={
+        'id': 1
+    })
+    assert delete_response.status_code == 200
+    repository = SpaceRepository(db_connection)
+    assert repository.all() == [
+        Space(2, 'space2', 'street2', 'city2', 'type2', 2, 2, 2, 200.00, 2),
+        Space(3, 'space3', 'street3', 'city3', 'type3', 3, 3, 3, 300.00, 3),
+    ]
