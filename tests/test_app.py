@@ -14,6 +14,24 @@ from lib.space import Space
 #     page.fill('password', 'password1')
 #     page.click('submit')
 #     assert "", 200
+
+"""
+/GET /
+When I access the homepage
+A status code of 200 is returned
+"""
+
+def test_get_home(page, test_web_address):
+    page.goto(f"http://{test_web_address}/")
+    h1_tag = page.locator("h1")
+    expect(h1_tag).to_have_text("Spaces")
+    h2_tag = page.locator("h2")
+    expect(h2_tag).to_have_text([
+        "space1",
+        "space2",
+        "space3"
+    ])
+
 """
 /POST albums
 When I add a new user through POST /users
@@ -46,16 +64,6 @@ def test_post_spaces(db_connection, web_client):
         })
     assert post_response.status_code == 200
     assert post_response.data.decode('utf-8') == ""
-    
-
-def test_get_spaces(db_connection, web_client):
-    db_connection.seed("seeds/test_bamboo_bnb_directory.sql")
-    repository = SpaceRepository(db_connection)
-    assert repository.all() == [
-        Space(1, 'space1', 'street1', 'city1', 'type1', 1, 1, 1, 100.00, 1),
-        Space(2, 'space2', 'street2', 'city2', 'type2', 2, 2, 2, 200.00, 2),
-        Space(3, 'space3', 'street3', 'city3', 'type3', 3, 3, 3, 300.00, 3),
-    ]
 
 def test_delete_spaces(db_connection, web_client):
     db_connection.seed("seeds/test_bamboo_bnb_directory.sql")
