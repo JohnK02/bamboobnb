@@ -1,12 +1,55 @@
 body {
-    font-size: 18px;
-    background-color: rgb(25,25,112);
+    font-size: 10px;
+    background-image: url("https://lochtree.com/cdn/shop/articles/the-environmental-benefits-of-bamboo-how-sustainable-is-it-472645_1600x.jpg?v=1629733724")
     
 }
 h1 {
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 a {
-    color:gold
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
     
+}
+img {
+    width:150px;
+    height:100px;
+    text-align:left;
+}
+head {
+    text-align:left;
+}
+p {
+    text-align:right;
+    color:blue
+}
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
