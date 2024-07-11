@@ -40,7 +40,7 @@ def post_users():
         request.form['email'],
         )
     repository.create(users)
-    return '', 200
+    return redirect("/login")
 
 
 def has_invalid_users_parameters(form):
