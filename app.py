@@ -13,7 +13,10 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def get_home():
-    return render_template('home.html')
+    connection = get_flask_database_connection(app)
+    repo = SpaceRepository(connection)
+    spaces = repo.all()
+    return render_template('home.html', spaces=spaces)
 
 @app.route('/registration', methods = ['GET'])
 def post_register():
@@ -48,6 +51,13 @@ def has_invalid_users_parameters(form):
 @app.route('/spaces', methods=['GET'])
 def get_spaces():
     return render_template('spaces/create_space.html')
+
+@app.route('/spaces/<id>', methods=['GET'])
+def get_spaces_id(id):
+    connection = get_flask_database_connection(app)
+    repo = SpaceRepository(connection)
+    space = repo.find(id)
+    return render_template('spaces/show.html', space=space)
 
 @app.route('/spaces', methods=['POST'])
 def post_spaces():
