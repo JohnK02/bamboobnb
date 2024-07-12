@@ -4,27 +4,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="static/show.css">
+        <link rel="stylesheet" type="text/css" href="/static/show.css">
         <title>{{space.name}}</title>
         <img style='display: block; margin-left:auto;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRGIkTAgm7sLd5-b-S4QZ1T7PudHCKEJptAA&s" alt="Logo">
     </head>
     <body>
-        
+        <div id="mySidenav" class="sidenav">
+            <a href="/" id="about">Home</a>
+            <a href="/registration" id="blog">Register</a>
+            <a href="/spaces" id="projects">Create a Space</a>
+            <a href="/about" id="contact">About</a>
         <h1>{{space.name}}</h1>
         <p>{{space.street}}, {{space.city}}</p>
         <p>{{space.property_type}}</p>
         <p>Max Guests {{space.maximum_capacity}}</p>
         <p>Beds {{space.number_of_bedrooms}}, Bathrooms {{space.number_of_bathrooms}}</p>
         <p>£{{space.price_per_night}}</p>
-        <p>
-            <a href="/registration"> Register </a>
-        </p>
-        <p>
-            <a href="/login"> Login </a>
-        </p>
-        <p>
-            <a href="/spaces"> Create a Space </a>
-        </p>
+        
 
     </body>
 </html>

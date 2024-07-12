@@ -5,11 +5,13 @@ body {
 h1 {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+    font-size: 50px;
 }
 a {
     color:white;
     font-family: Arial, Helvetica, sans-serif;
-    
+    text-align:center;
 }
 img {
     width:150px;
@@ -17,12 +19,13 @@ img {
     text-align:left;
 }
 head {
-    text-align:left;
+    text-align:center;
 }
 p {
-    text-align:right;
-    color:blue;
-    font-size: 50px
+    
+    color:white;
+    font-size: 30px;
+    text-align:center;
 }
 hr {
     color:white;

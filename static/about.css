@@ -1,6 +1,6 @@
 body {
     font-size: 10px;
-    background-image: url("https://gifdb.com/images/high/panda-funny-dance-moves-je23i0lsydx9gs5b.gif")
+    background-image: url("https://lochtree.com/cdn/shop/articles/the-environmental-benefits-of-bamboo-how-sustainable-is-it-472645_1600x.jpg?v=1629733724")
     
 }
 h3 {
@@ -23,7 +23,7 @@ head {
     text-align:left;
 }
 p {
-    color:black;
+    color:white;
     font-size:50px;
 }
 #mySidenav a {
@@ -60,9 +60,4 @@ p {
 #contact {
     top: 200px;
     background-color: #04AA6D; /* Light Black */
-}
-.white_bg 
-{
-    background-color: #ffffff;
-    padding: 50px; /*add this if you want a bit of space around the text*/
 }
