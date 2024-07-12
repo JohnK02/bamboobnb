@@ -4,8 +4,9 @@ body {
     
 }
 h1 {
-    color: white;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
 }
 a {
     color:white;
@@ -21,7 +22,8 @@ head {
     text-align:left;
 }
 p {
-    color:black
+    color:black;
+    font-size: 15px;
 }
 #mySidenav a {
     position: absolute; /* Position them relative to the browser window */
