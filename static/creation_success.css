@@ -3,3 +3,53 @@ body {
     background-image: url("https://lochtree.com/cdn/shop/articles/the-environmental-benefits-of-bamboo-how-sustainable-is-it-472645_1600x.jpg?v=1629733724")
     
 }
+h1 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img {
+    width:150px;
+    height:100px;
+    text-align:left;
+}
+head {
+    text-align:left;
+}
+p {
+    color:black
+}
+#mySidenav a {
+    position: absolute; /* Position them relative to the browser window */
+    left: -80px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 100px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 10px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+#about {
+    top: 20px;
+    background-color: #04AA6D;
+    
+}
+
+#blog {
+    top: 80px;
+    background-color: #04AA6D; /* Blue */
+}
+
+#projects {
+    top: 140px;
+    background-color: #04AA6D; /* Red */
+}
+
+#contact {
+    top: 200px;
+    background-color: #04AA6D; /* Light Black */
+}

@@ -87,6 +87,10 @@ def delete_spaces():
     return "\n".join(
         f"{space}" for space in repository.all())
 
+@app.route('/about', methods=['GET'])
+def get_about():
+    return render_template('users/about.html')
+
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
 # if started in test mode.

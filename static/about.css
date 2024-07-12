@@ -1,15 +1,17 @@
 body {
     font-size: 10px;
-    background-image: url("https://lochtree.com/cdn/shop/articles/the-environmental-benefits-of-bamboo-how-sustainable-is-it-472645_1600x.jpg?v=1629733724")
+    background-image: url("https://gifdb.com/images/high/panda-funny-dance-moves-je23i0lsydx9gs5b.gif")
     
 }
-h1 {
+h3 {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
 }
 a {
     color:white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
     
 }
 img {
@@ -21,13 +23,9 @@ head {
     text-align:left;
 }
 p {
-    text-align:right;
-    color:blue
+    color:black;
+    font-size:50px;
 }
-hr {
-    color:white;
-}
-/* Style the links inside the sidenav */
 #mySidenav a {
     position: absolute; /* Position them relative to the browser window */
     left: -80px; /* Position them outside of the screen */
@@ -62,4 +60,9 @@ hr {
 #contact {
     top: 200px;
     background-color: #04AA6D; /* Light Black */
+}
+.white_bg 
+{
+    background-color: #ffffff;
+    padding: 50px; /*add this if you want a bit of space around the text*/
 }

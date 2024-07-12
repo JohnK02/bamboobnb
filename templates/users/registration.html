@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="static/registration.css">
     <title>Registration</title>
+    <img style='display: block; margin-left:auto;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRGIkTAgm7sLd5-b-S4QZ1T7PudHCKEJptAA&s" alt="Logo">
 </head>
 <body>
-    <h1>Registration</h1>
-    <form action="/users" method="post">
+    <h1 align="center">Registration</h1>
+    <div id="mySidenav" class="sidenav">
+        <a href="/" id="about">Home</a>
+        <a href="/registration" id="blog">Register</a>
+        <a href="/spaces" id="projects">Create a Space</a>
+        <a href="/about" id="contact">About</a>
+    </div>
+    <form action="/users" method="post" align="center">
         <p>
-            <label for="username">Username</label>
+            <span class="white_bg"><label for="username">Username</label></span>
             <input type="text" name="username" id="username">
         </p>
         <p>
-            <label for="password">Password</label>
+            <span class="white_bg"><label for="password">Password</label></span>
             <input type="password" name="password" id="password">
         </p>
         <p>
-            <label for="email">Email address</label>
+            <span class="white_bg"><label for="email">Email address</label></span>
             <input type="text" name="email" id="email">
         </p>
         <p>
