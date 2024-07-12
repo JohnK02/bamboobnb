@@ -77,7 +77,7 @@ def post_spaces():
         ))
     # return "\n".join(
     #     f"{space}" for space in repository.all())
-    return '', 200
+    return redirect('/space-success')
 
 @app.route('/spaces', methods=['DELETE'])
 def delete_spaces():
@@ -90,6 +90,10 @@ def delete_spaces():
 @app.route('/about', methods=['GET'])
 def get_about():
     return render_template('users/about.html')
+
+@app.route('/space-success')
+def get_space_success():
+    return render_template('spaces/creation_success.html')
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
