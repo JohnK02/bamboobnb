@@ -26,6 +26,10 @@ def post_register():
 def get_login():
     return render_template('users/login.html')
 
+@app.route('/login', methods = ['POST'])
+def post_login():
+    return redirect('/')
+
 @app.route('/users', methods=['POST'])
 def post_users():
     if has_invalid_users_parameters(request.form):
